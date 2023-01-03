@@ -1,3 +1,17 @@
-# ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="602b", MODE="0664", GROUP="dialout" RUN+="/bin/sh -c 'echo rule fired 14 >> /home/bernd/udev-env.txt'"
-#ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="602b", MODE="0664", GROUP="dialout"
-ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="602b", MODE="0664", GROUP="dialout"
+#
+# UDEV Rules for FPGA DAP adapter
+# https://github.com/IoTInsights/dap-utils
+#
+# MUSE Lab ICESugar FPGA
+# https://www.aliexpress.com/item/4001201771358.html
+#
+# MUSE Lab ICESugar-nano FPGA
+# https://www.aliexpress.com/item/1005002073816863.html
+#
+ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="602b", MODE="0660", GROUP="dialout"
+#
+# MUSE Lab Lattice ECP5 FPGA Base Board i5 i9
+# https://www.aliexpress.com/item/1005001686186007.html
+#
+ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0d28", ATTRS{idProduct}=="0204", MODE="0660", GROUP="dialout"
+

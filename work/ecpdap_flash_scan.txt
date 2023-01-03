@@ -1,0 +1,81 @@
+Info from:
+https://tomverbeure.github.io/2021/01/22/The-Colorlight-i5-as-FPGA-development-board.html
+
+
+bernd@ubuntu:~/develop/fpga/dap-utils$ sudo /home/bernd/.cargo/bin/ecpdap flash scan
+Reading flash ID...
+Manufacturer 0xEF (Winbond/NEXCOM), Device 0x16/0x4017, Unique ID: DF695C83D71D4635
+
+Reading flash parameters...
+SFDP JEDEC Basic Flash Parameter Table v1.5
+  Density: 67108864 bits (8192 KiB)
+  Address bytes: Three
+  Legacy information:
+    4kB erase supported: true
+    4kB erase opcode: 0x20
+    Block Protect always volatile: false
+    Volatile write enable opcode: 0x50
+    Writes have byte granularity: true
+  Erase instructions:
+    1: Opcode 0x20: 4096 bytes, typ 64ms, max 896ms
+    2: Opcode 0x52: 32768 bytes, typ 128ms, max 1.792s
+    3: Opcode 0xD8: 65536 bytes, typ 160ms, max 2.24s
+    4: Not present
+  Timing:
+    Chip erase: typ 20s, max 280s
+    First byte program: typ 32µs, max 192µs
+    Subsequent byte program: typ 3µs, max 18µs
+    Page program: typ 704µs, max 4.224ms
+  Page size: 256 bytes
+  Poll busy from FSR: false
+  Poll busy from SR1: true
+  Reset using opcode 0xF0: false
+  Reset using opcodes 0x66, 0x99: true
+  Status register 1 volatility: NonVolatile06
+
+Reading status registers...
+Status 1: 0x1C, status 2: 0x02, status 3: 0x60
+BP0: true, BP1: true, BP2: true, SEC: false, TB: false
+
+
+bernd@ubuntu:~/develop/fpga/dap-utils$ sudo /home/bernd/.cargo/bin/ecpdap flash unprotect
+Disabling flash write protection...
+Flash protected disabled.
+Finished in 0.62s
+
+
+bernd@ubuntu:~/develop/fpga/dap-utils$ sudo /home/bernd/.cargo/bin/ecpdap flash scan
+Reading flash ID...
+Manufacturer 0xEF (Winbond/NEXCOM), Device 0x16/0x4017, Unique ID: DF695C83D71D4635
+
+Reading flash parameters...
+SFDP JEDEC Basic Flash Parameter Table v1.5
+  Density: 67108864 bits (8192 KiB)
+  Address bytes: Three
+  Legacy information:
+    4kB erase supported: true
+    4kB erase opcode: 0x20
+    Block Protect always volatile: false
+    Volatile write enable opcode: 0x50
+    Writes have byte granularity: true
+  Erase instructions:
+    1: Opcode 0x20: 4096 bytes, typ 64ms, max 896ms
+    2: Opcode 0x52: 32768 bytes, typ 128ms, max 1.792s
+    3: Opcode 0xD8: 65536 bytes, typ 160ms, max 2.24s
+    4: Not present
+  Timing:
+    Chip erase: typ 20s, max 280s
+    First byte program: typ 32µs, max 192µs
+    Subsequent byte program: typ 3µs, max 18µs
+    Page program: typ 704µs, max 4.224ms
+  Page size: 256 bytes
+  Poll busy from FSR: false
+  Poll busy from SR1: true
+  Reset using opcode 0xF0: false
+  Reset using opcodes 0x66, 0x99: true
+  Status register 1 volatility: NonVolatile06
+
+Reading status registers...
+Status 1: 0x00, status 2: 0x02, status 3: 0x60
+BP0: false, BP1: false, BP2: false, SEC: false, TB: false
+
